@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 轻量导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f2f4f7;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e293b;
+            line-height: 1.6;
+            padding: 0 24px;
+        }
+        .page-wrap {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 32px 0 48px;
+        }
+
+        /* 顶部导航 */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 14px 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border: 1px solid #e9edf2;
+            margin-bottom: 40px;
+        }
+        .logo-area {
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 0.3px;
+            color: #0f172a;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-size: 0.95rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s;
+        }
+        .nav-links a:hover {
+            border-bottom-color: #3b82f6;
+            color: #0f172a;
+        }
+        .nav-cta a {
+            background: #1e293b;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .nav-cta a:hover {
+            background: #0f172a;
+        }
+
+        /* hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 44px 36px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            margin-bottom: 32px;
+        }
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            margin-bottom: 14px;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: #475569;
+            max-width: 700px;
+            margin-bottom: 20px;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: #eef2f6;
+            border-radius: 40px;
+            padding: 6px 18px;
+            font-size: 0.85rem;
+            color: #334155;
+            border: 1px solid #dce2ea;
+        }
+
+        /* 通用卡片区 */
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin: 40px 0 16px;
+            color: #0b1a2e;
+            letter-spacing: -0.2px;
+        }
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px 22px;
+            border: 1px solid #e6ecf2;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+            flex: 1 1 240px;
+            min-width: 180px;
+            transition: box-shadow 0.15s;
+        }
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0,0,0,0.03);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        /* 场景 → 三个模块 */
+        .scene-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 28px;
+        }
+        .scene-item {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.01);
+            flex: 1 1 260px;
+        }
+        .scene-item .emoji-badge {
+            display: inline-block;
+            background: #f1f5f9;
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            border: 1px solid #dde3ea;
+        }
+        .scene-item h3 {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        .scene-item p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* 常见说明 / faq 片段 */
+        .faq-block {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 28px 28px 24px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+            margin: 28px 0 24px;
+        }
+        .faq-block h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #0f172a;
+        }
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #edf1f7;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 3px;
+            color: #1e293b;
+        }
+        .faq-item p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        /* inline 链接样式 */
+        .inline-link {
+            color: #1d4ed8;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted #a3bfef;
+            transition: border-bottom 0.2s;
+        }
+        .inline-link:hover {
+            border-bottom: 1px solid #1d4ed8;
+        }
+
+        /* 底部 */
+        .footer-note {
+            border-top: 1px solid #dce2ea;
+            padding-top: 20px;
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .navbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 16px;
+            }
+            .nav-links {
+                justify-content: center;
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+            .nav-cta {
+                text-align: center;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero {
+                padding: 30px 20px;
+            }
+            .card-grid, .scene-wrapper {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 导航 -->
+    <nav class="navbar">
+        <div class="logo-area">◈ 轻导航</div>
+        <ul class="nav-links">
+            <li><a href="#intro">介绍</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">说明</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="https://cnm-hth.com.cn">华体会</a>
+        </div>
+    </nav>
+
+    <!-- hero 区域 -->
+    <div class="hero">
+        <span class="tagline">🔍 快速识别 · 一站直达</span>
+        <h1>了解网站用途，从这里开始</h1>
+        <p>
+            打开一个网站，最直接的需求就是弄清楚它能做什么、是否适合自己。  
+            <a href="https://cnm-hth.com.cn" class="inline-link">华体会</a> 正是围绕这一核心体验来设计的 ——
+            无论你是在寻找平台功能、浏览内容模块，还是想判断页面氛围，都能在几秒内建立初步印象。
+        </p>
+        <p style="margin-bottom: 0; font-size: 0.95rem; color: #64748b;">
+            下面的卡片与场景模块可以帮助你快速定位自己关心的话题，不需要反复猜测。
+        </p>
+    </div>
+
+    <!-- 三个特点卡片（轻介绍） -->
+    <h2 class="section-title" id="intro">· 结构亮点</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>🎯 意图前置</h3>
+            <p>首页直接展示核心模块，减少浏览负担。每个区块都对应一类常见需求，比如内容预览、功能入口或信息索引。</p>
+        </div>
+        <div class="card">
+            <h3>📋 干净分区</h3>
+            <p>浅灰背景配合白色卡片，细边框与柔和阴影让信息层级一目了然。没有过多装饰，专注阅读与导航。</p>
+        </div>
+        <div class="card">
+            <h3>🔗 自然链接</h3>
+            <p>重要链接嵌入在段落陈述中，不显得突兀。例如你可以通过上文提到的 <a href="https://cnm-hth.com.cn" class="inline-link">华体会</a> 直接前往对应页面，整个过程流畅直观。</p>
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title" id="scenes">· 常见使用场景</h2>
+    <div class="scene-wrapper">
+        <div class="scene-item">
+            <div class="emoji-badge">📱</div>
+            <h3>快速浏览与判断</h3>
+            <p>打开页面后，通过顶部导航和分区卡片迅速把握网站提供的内容方向，不需要深入二级页面就能获得整体认知。</p>
+        </div>
+        <div class="scene-item">
+            <div class="emoji-badge">🧭</div>
+            <h3>寻找具体功能</h3>
+            <p>如果你已经了解 <a href="https://cnm-hth.com.cn" class="inline-link">华体会</a> 的大致定位，可以通过导航和场景模块直接定位自己关心的板块，节省点击步骤。</p>
+        </div>
+        <div class="scene-item">
+            <div class="emoji-badge">📌</div>
+            <h3>信息确认与参考</h3>
+            <p>访问者常常需要确认网站是否包含某些说明或常见问答。下方的常见说明区域汇总了基础问题，方便对照参考。</p>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-block" id="faq">
+        <h2>· 常见说明</h2>
+        <div class="faq-item">
+            <strong>这个页面主要展示什么？</strong>
+            <p>这是一个轻量导航式的介绍页，帮助你快速理解网站的结构与用途。内容围绕核心关键词组织，不涉及复杂功能，仅提供清晰的指引。</p>
+        </div>
+        <div class="faq-item">
+            <strong>如何访问主站？</strong>
+            <p>页面中嵌入的链接均指向 <a href="https://cnm-hth.com.cn" class="inline-link">华体会</a> ，你可以通过导航按钮或者段落中的文字链接前往。所有链接均保持自然融入句式。</p>
+        </div>
+        <div class="faq-item">
+            <strong>为什么使用卡片和分区？</strong>
+            <p>为了让信息更容易被扫描和消化。浅灰背景、白色卡片和细边框的组合在视觉上保持干净，适合快速浏览。每个模块都承担独立的说明角色。</p>
+        </div>
+        <div class="faq-item">
+            <strong>设计与内容是否定期变化？</strong>
+            <p>本介绍页每次生成都会调整结构、措辞和样式细节，避免模板化。即使核心信息不变，呈现方式也保持差异化，让重复访问者仍有新鲜感。</p>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>基于轻量导航理念 · 内容方向：用途识别与场景引导</span>
+        <span style="display: block; margin-top: 4px; color: #94a3b8;">— 介绍页 · 华体会 —</span>
+    </div>
+
+</div>
+</body>
+</html>

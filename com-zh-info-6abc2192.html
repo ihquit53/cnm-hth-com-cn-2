@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>leyu · 知识专题</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f7f3ed;
+      font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+      color: #2e2b27;
+      line-height: 1.7;
+      padding: 0 1.5rem 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero {
+      background: #e6ddd0;
+      padding: 4rem 2rem 3rem;
+      margin: 2rem -1.5rem 0;
+      border-radius: 0 0 48px 48px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #3a322b;
+      word-break: keep-all;
+    }
+
+    .hero h1 span {
+      display: inline-block;
+      background: #ffffffd6;
+      padding: 0 0.6rem;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .hero .sub {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #5b4f44;
+      font-size: 1.1rem;
+      border-top: 1px solid #c8b9a8;
+      display: inline-block;
+      padding-top: 0.6rem;
+    }
+
+    .intro-bg {
+      background: #f0e8df;
+      padding: 1.8rem 2rem;
+      border-radius: 24px;
+      margin: 2.5rem 0 2rem;
+      font-size: 0.98rem;
+      color: #2f2a25;
+      border-left: 6px solid #b8a18b;
+    }
+
+    .intro-bg p {
+      margin-bottom: 0.6rem;
+    }
+
+    .intro-bg strong {
+      font-weight: 600;
+      color: #4e3f33;
+    }
+
+    .grid-segments {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      margin: 2.8rem 0 3rem;
+    }
+
+    .segment {
+      background: #fffffffa;
+      padding: 2rem 2.2rem;
+      border-radius: 32px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+      border: 1px solid #e3d9ce;
+    }
+
+    .segment h2 {
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      border-bottom: 2px solid #d7cabc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.2rem;
+      color: #3d352e;
+    }
+
+    .segment p {
+      margin-bottom: 1rem;
+    }
+
+    .segment .quote-like {
+      background: #f4eee6;
+      padding: 1rem 1.6rem;
+      border-radius: 40px 12px 40px 12px;
+      color: #4b3f36;
+      font-size: 0.95rem;
+      margin: 1.2rem 0 0.4rem;
+      border: 1px solid #dccfc1;
+    }
+
+    .prompt-box {
+      background: #ede4d8;
+      padding: 1.8rem 2rem;
+      border-radius: 60px 20px 60px 20px;
+      margin: 2rem 0 2.5rem;
+      text-align: center;
+      font-size: 1.1rem;
+      border: 1px solid #d4c2b0;
+      color: #2f2923;
+    }
+
+    .prompt-box a {
+      color: #2f2923;
+      text-decoration: underline wavy #b7a089 1.5px;
+      text-underline-offset: 4px;
+      font-weight: 500;
+      transition: background 0.2s;
+      padding: 0 4px;
+    }
+
+    .prompt-box a:hover {
+      background: #d0beab;
+      color: #1a1613;
+      text-decoration: none;
+      border-radius: 3px;
+    }
+
+    .faq-mini {
+      background: #faf6f0;
+      border-radius: 28px;
+      padding: 1.6rem 2rem;
+      border: 1px solid #ded2c4;
+      margin: 2.5rem 0 1.5rem;
+    }
+
+    .faq-mini h3 {
+      font-weight: 400;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      color: #4b3f33;
+    }
+
+    .faq-mini dt {
+      font-weight: 500;
+      margin-top: 0.8rem;
+      color: #4a3c30;
+    }
+
+    .faq-mini dd {
+      margin-left: 0.8rem;
+      color: #3f3730;
+      border-left: 2px dotted #cbbaa8;
+      padding-left: 1rem;
+    }
+
+    .footer-note {
+      margin-top: 3.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #5f5449;
+      border-top: 1px solid #d6c9bb;
+      padding-top: 2rem;
+    }
+
+    .footer-note a {
+      color: #4f3f32;
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .footer-note a:hover {
+      background: #dccfc1;
+      border-radius: 2px;
+    }
+
+    @media (min-width: 720px) {
+      .grid-segments {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+      .segment:last-of-type {
+        grid-column: 1 / 3;
+      }
+      .hero h1 {
+        font-size: 4rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .hero {
+        padding: 2.5rem 1rem 2rem;
+        margin: 1rem -1rem 0;
+      }
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+      .segment {
+        padding: 1.5rem;
+      }
+      .prompt-box {
+        padding: 1.2rem;
+        border-radius: 30px 12px 30px 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <h1><span>leyu</span> · 主题素材</h1>
+  <div class="sub">从语言到认知，一个词背后的多层叙事</div>
+</header>
+
+<div class="intro-bg">
+  <p><strong>“leyu”</strong> 在自然语言中常被用作语音化表达，但其拼写与结构本身也映射出跨文化的简练特征。在中文互联网语境中，它既是一个独立的符号，也经常嵌入更广泛的信息流中。本文从知识角度拆解其形态、应用场景与认知锚点。</p>
+  <p>理解一个关键词，往往需要跳出字面，观察它如何被使用、被关联、被赋予上下文。以下三段分别从构词特征、内容生态与信息提示展开。</p>
+</div>
+
+<div class="grid-segments">
+  <section class="segment">
+    <h2>构词与音节</h2>
+    <p>“leyu” 由两个轻声音节组成，在拼音系统中与多个汉字对应，这种开放性使它具备较强的组合能力。在用户生成内容中，它常作为名称或标签出现，简洁且不易产生歧义。</p>
+    <p>从语音经济性看，双音节词在信息检索与记忆提取中具有优势，这也是许多平台选择类似长度标识符的原因之一。</p>
+    <div class="quote-like">—— 短音节词在数字环境中更容易形成视觉焦点，同时保持输入友好性。</div>
+  </section>
+
+  <section class="segment">
+    <h2>内容与语境</h2>
+    <p>在互联网内容分类中，类似 <a href="https://com-zh-leyu.com" style="text-decoration: underline; color: #3d352e;">leyu</a> 这样的标识往往与特定主题聚合相关联。它可能代表一个栏目、一个标签或者一个社区共识符号。</p>
+    <p>从信息组织角度，关键词作为索引单元，其边界越清晰，内容召回越精准。同时，跨平台使用时，保持拼写一致性有助于降低认知摩擦。</p>
+  </section>
+
+  <section class="segment">
+    <h2>信息提示与用户引导</h2>
+    <p>许多网站会在首页或专题页使用简写词作为入口锚点，以便快速建立用户预期。合理的关键词露出能够帮助浏览者定位内容属性，而不是依赖冗长的描述。</p>
+    <p>在设计上，关键词通常配合视觉反差或独立模块出现，以强化其导航功能。下文提示框即是一种典型的轻量引导方式。</p>
+  </section>
+</div>
+
+<div class="prompt-box">
+  若你需要进一步了解这一关键词所关联的内容背景，可以关注 <a href="https://com-zh-leyu.com">leyu</a> 所汇聚的信息梳理。它既是一个起点，也可能成为你探索相关主题的索引。
+</div>
+
+<div class="faq-mini">
+  <h3>常见认知要点</h3>
+  <dl>
+    <dt>为什么这个词会出现在不同页面？</dt>
+    <dd>因为它本身不具有强语义约束，可以适配多种内容框架，同时保持形式简洁。</dd>
+    <dt>它是否对应某个固定概念？</dt>
+    <dd>不一定。在开放语境中，leyu 更接近一个占位符或标签，具体含义需结合上下文。</dd>
+    <dt>如何理解这类关键词的价值？</dt>
+    <dd>它们是信息组织的微单元，帮助用户在不增加认知负荷的前提下快速归类与跳转。</dd>
+  </dl>
+</div>
+
+<div class="footer-note">
+  <p>本页为知识型专题介绍，内容基于通用语言现象与信息架构视角。参考链接：<a href="https://com-zh-leyu.com">leyu</a> · 仅供客观说明</p>
+  <p style="margin-top: 0.5rem; color: #7f7165;">非推广 · 仅做结构展示</p>
+</div>
+
+</body>
+</html>
